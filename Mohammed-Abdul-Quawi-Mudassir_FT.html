@@ -44,6 +44,21 @@
     		// sets the border attribute of tbl to 2;
     		tbl.setAttribute("border", "2");
 		}
+
+		function addColumn() {
+			// Access the table directly
+    		var table = document.querySelector("table"); 
+    		var rows = table.rows.length;
+
+    		for (var i = 0; i < rows; i++) {
+        		var cell = document.createElement("td");
+        		var rowNumber = i ; // Row numbers start from 0
+        		var colNumber = table.rows[i].cells.length ; // Column numbers start for next
+        		cell.appendChild(document.createTextNode(`${rowNumber}, ${colNumber}`));
+				// Append cell to each row
+        		table.rows[i].appendChild(cell); 
+    		}
+		}
 	
 	</script>
 
