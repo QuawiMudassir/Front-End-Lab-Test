@@ -15,11 +15,20 @@
 	<script>
 		
 		function generateTable() {
-    		// creates a <table> element and a <tbody> element
-    		const tbl = document.createElement("table");
-    		const tblBody = document.createElement("tbody");
+
     		var t1 = document.getElementById("t1").value;
     		var t2 = document.getElementById("t2").value;
+			
+
+			// Validate input
+			if (!isValidInput(t1, t2)) {
+        		alert("Please enter valid numbers for rows and columns.");
+        		return;
+    		}
+
+			// creates a <table> element and a <tbody> element
+				const tbl = document.createElement("table");
+    			const tblBody = document.createElement("tbody");
 
     		// creating all cells
     		for (let i = 0; i < t1; i++) {
@@ -35,6 +44,10 @@
 
         		// add the row to the end of the table body
         		tblBody.appendChild(row);
+
+				document.getElementById("t1").style.display = "none";
+    			document.getElementById("t2").style.display = "none";
+    			document.getElementById("b1").style.display = "none";
     		}
 
     		// put the <tbody> in the <table>
@@ -43,9 +56,13 @@
     		document.body.appendChild(tbl);
     		// sets the border attribute of tbl to 2;
     		tbl.setAttribute("border", "2");
-
-			hideElements();
 		}
+		
+		function isValidInput(t1, t2) {
+    		return !isNaN(t1) && !isNaN(t2) && t1 > 0 && t2 > 0;
+		}
+
+		
 
 		function addColumn() {
 			// Access the table directly
@@ -83,9 +100,6 @@
     		table.appendChild(newRow);
 		}
 
-		
-
-	
 	</script>
 
 </body>
