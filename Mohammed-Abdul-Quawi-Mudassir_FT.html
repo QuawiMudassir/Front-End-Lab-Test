@@ -15,35 +15,35 @@
 	<script>
 		
 		function generateTable() {
-    // creates a <table> element and a <tbody> element
-    const tbl = document.createElement("table");
-    const tblBody = document.createElement("tbody");
-    var t1 = document.getElementById("t1").value;
-    var t2 = document.getElementById("t2").value;
+    		// creates a <table> element and a <tbody> element
+    		const tbl = document.createElement("table");
+    		const tblBody = document.createElement("tbody");
+    		var t1 = document.getElementById("t1").value;
+    		var t2 = document.getElementById("t2").value;
 
-    // creating all cells
-    for (let i = 0; i < t1; i++) {
-        // creates a table row
-        const row = document.createElement("tr");
+    		// creating all cells
+    		for (let i = 0; i < t1; i++) {
+        		// creates a table row
+        		const row = document.createElement("tr");
 
-        for (let j = 0; j < t2; j++) {
-            const cell = document.createElement("td");
-            const cellText = document.createTextNode(`${i},  ${j}`); // Use backticks for template literals
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-        }
+        		for (let j = 0; j < t2; j++) {
+            		const cell = document.createElement("td");
+            		const cellText = document.createTextNode(`${i},  ${j}`); 
+            		cell.appendChild(cellText);
+            		row.appendChild(cell);
+        		}
 
-        // add the row to the end of the table body
-        tblBody.appendChild(row);
-    }
+        		// add the row to the end of the table body
+        		tblBody.appendChild(row);
+    		}
 
-    // put the <tbody> in the <table>
-    tbl.appendChild(tblBody);
-    // appends <table> into <body>
-    document.body.appendChild(tbl);
-    // sets the border attribute of tbl to 2;
-    tbl.setAttribute("border", "2");
-}
+    		// put the <tbody> in the <table>
+    		tbl.appendChild(tblBody);
+    		// appends <table> into <body>
+    		document.body.appendChild(tbl);
+    		// sets the border attribute of tbl to 2;
+    		tbl.setAttribute("border", "2");
+		}
 	
 	</script>
 
