@@ -43,6 +43,8 @@
     		document.body.appendChild(tbl);
     		// sets the border attribute of tbl to 2;
     		tbl.setAttribute("border", "2");
+
+			hideElements();
 		}
 
 		function addColumn() {
@@ -59,6 +61,30 @@
         		table.rows[i].appendChild(cell); 
     		}
 		}
+
+		function addRow() {
+    		var table = document.querySelector("table"); // Access the table directly
+    		var numRows = table.rows.length;
+    		var numCols = table.rows[0].cells.length;
+
+    		// Create a new row
+    		var newRow = document.createElement("tr");
+
+    		// Populate cells in the new row with row and column numbers
+    		for (var j = 0; j < numCols; j++) {
+        		var cell = document.createElement("td");
+        		var rowNumber = numRows; // Row numbers start from next
+        		var colNumber = j; // Column numbers start from 0
+        		cell.appendChild(document.createTextNode(`${rowNumber}, ${colNumber}`));
+        		newRow.appendChild(cell); // Append cell to the new row
+    		}
+
+    		// Add the new row to the table
+    		table.appendChild(newRow);
+		}
+
+		
+
 	
 	</script>
 
