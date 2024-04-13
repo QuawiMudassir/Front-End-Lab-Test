@@ -1,50 +1,52 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <title>Lab Test</title>
-</head>
-<body>
-    <font size="8" color="green">Final Test Lab</font><br><br>
-    Number of rows: <input type="text" id="numRowsInput" /><br><br>
-    Number of columns: <input type="text" id="numColsInput" /><br><br>
-    
-    <button id="generateBtn" onclick="generateTable()">Generate Table</button><br><br>
-    
-    <button id="addColumnBtn" onclick="addColumn()">Add Column</button>
-    
-    <button id="addRowBtn" onclick="addRow()">Add Row</button>
-        
-    <table id="tableContainer" border="1"></table>
-    
-    <script>
-        function generateTable() {
-            var numRows = parseInt(document.getElementById('numRowsInput').value);
-            var numCols = parseInt(document.getElementById('numColsInput').value);
-            var tableHTML = '<thead><tr><th>Index</th>';
+	<body>
+		
+	
+	<font size="8" color="green">Final test lab</font><br><br>
+	Number of rows: <input type="text" id="t1" /><br><br>
+	Number of cols: <input type="text" id="t2" /><br><br>
+	
+	<button id="b1" onclick="generateTable()">Generate Table</button><br><br>
+	
+	<button id="b2" onclick="addColumn()">Add Column</button>
+	
+	<button id="b3" onclick="addRow()">Add Row</button>
+		
+	<script>
+		
+		function generateTable() {
+    // creates a <table> element and a <tbody> element
+    const tbl = document.createElement("table");
+    const tblBody = document.createElement("tbody");
+    var t1 = document.getElementById("t1").value;
+    var t2 = document.getElementById("t2").value;
 
-            for (var j = 0; j < numCols; j++) {
-                tableHTML += '<th>Column ' + j + '</th>';
-            }
-            tableHTML += '</tr></thead><tbody>';
+    // creating all cells
+    for (let i = 0; i < t1; i++) {
+        // creates a table row
+        const row = document.createElement("tr");
 
-            for (var i = 0; i < numRows; i++) {
-                tableHTML += '<tr><th>Row ' + i + '</th>';
-                for (var j = 0; j < numCols; j++) {
-                    tableHTML += '<td>(' + i + ', ' + j + ')</td>';
-                }
-                tableHTML += '</tr>';
-            }
-            tableHTML += '</tbody>';
-
-            document.getElementById('tableContainer').innerHTML = tableHTML;
-
-            // Remove everything except the "Add Row" and "Add Column" buttons
-            document.getElementById('numRowsInput').style.display = 'none';
-            document.getElementById('numColsInput').style.display = 'none';
-            document.getElementById('generateBtn').style.display = 'none';
+        for (let j = 0; j < t2; j++) {
+            const cell = document.createElement("td");
+            const cellText = document.createTextNode(`${i},  ${j}`); // Use backticks for template literals
+            cell.appendChild(cellText);
+            row.appendChild(cell);
         }
 
-        
-    </script>
+        // add the row to the end of the table body
+        tblBody.appendChild(row);
+    }
+
+    // put the <tbody> in the <table>
+    tbl.appendChild(tblBody);
+    // appends <table> into <body>
+    document.body.appendChild(tbl);
+    // sets the border attribute of tbl to 2;
+    tbl.setAttribute("border", "2");
+}
+	
+	</script>
+
 </body>
+	
 </html>
